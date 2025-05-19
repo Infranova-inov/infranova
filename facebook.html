@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Infranova - Facebook Downloader (Redirection)</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin-top: 100px; }
+    input { width: 60%; padding: 10px; font-size: 16px; }
+    button { padding: 10px 20px; margin: 10px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <h1>📘 Télécharger depuis Facebook</h1>
+  <input type="text" id="url" placeholder="Colle le lien Facebook ici">
+  <br>
+  <button onclick="redirect()">Rediriger vers site externe</button>
+  <br><br>
+  <a href="index.html">⬅ Retour à l'accueil</a>
+
+  <script>
+    function redirect() {
+      const input = document.getElementById("url");
+      const url = input.value.trim();
+      if (!url || !url.includes("facebook.com")) {
+        alert("Colle un lien Facebook valide !");
+        return;
+      }
+      input.value = "";
+      window.open(`https://fdown.net/fr/`, '_blank');
+    }
+  </script>
+</body>
+</html>
