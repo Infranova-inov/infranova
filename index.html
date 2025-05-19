@@ -1,44 +1,140 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Infranova - Choix de plateforme</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Infranova - Téléchargeur multi-plateformes</title>
   <style>
     body {
-      font-family: sans-serif;
-      text-align: center;
-      margin-top: 100px;
-      background-color: #f7f9fc;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0; padding: 0;
+      background: linear-gradient(135deg, #6fb1fc, #4364f7);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      padding: 20px;
+      box-sizing: border-box;
     }
     h1 {
-      margin-bottom: 40px;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.3);
     }
-    .btn {
-      display: inline-block;
-      width: 200px;
-      padding: 20px;
-      margin: 15px;
-      font-size: 18px;
-      border: none;
-      border-radius: 10px;
+    .platforms {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      max-width: 600px;
+      width: 100%;
+    }
+    button.btn {
+      flex: 1 1 150px;
       background-color: #007bff;
+      border: none;
+      border-radius: 12px;
+      padding: 15px 0;
+      font-size: 1.1rem;
+      cursor: pointer;
+      color: white;
+      box-shadow: 0 4px 10px rgba(0,123,255,0.5);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      user-select: none;
+    }
+    button.btn:hover {
+      background-color: #0056b3;
+      transform: translateY(-3px);
+    }
+    form {
+      margin-top: 1.5rem;
+      max-width: 600px;
+      width: 100%;
+      display: flex;
+      gap: 10px;
+    }
+    input[type="url"] {
+      flex: 1;
+      padding: 12px 15px;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+    }
+    input[type="submit"] {
+      padding: 12px 20px;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: none;
+      background-color: #28a745;
       color: white;
       cursor: pointer;
-      transition: 0.2s;
+      box-shadow: 0 4px 10px rgba(40,167,69,0.5);
+      transition: background-color 0.3s ease;
     }
-    .btn:hover {
-      background-color: #0056b3;
+    input[type="submit"]:hover {
+      background-color: #1e7e34;
+    }
+    footer {
+      margin-top: auto;
+      padding: 10px 0;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+    }
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+      button.btn {
+        font-size: 1rem;
+        padding: 12px 0;
+      }
+      form {
+        flex-direction: column;
+      }
+      input[type="submit"] {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
   <h1>🔽 Choisis une plateforme</h1>
-  <button class="btn" onclick="window.location.href='youtube.html'">📺 YouTube</button>
-  <button class="btn" onclick="window.location.href='tiktok.html'">🎵 TikTok</button>
-  <button class="btn" onclick="window.location.href='instagram.html'">📸 Instagram</button>
-  <button class="btn" onclick="window.location.href='twitter.html'">🐦 Twitter</button>
+  <div class="platforms">
+    <button class="btn" onclick="window.location.href='youtube.html'">📺 YouTube</button>
+    <button class="btn" onclick="window.location.href='tiktok.html'">🎵 TikTok</button>
+    <button class="btn" onclick="window.location.href='instagram.html'">📸 Instagram</button>
+    <button class="btn" onclick="window.location.href='twitter.html'">🐦 Twitter</button>
     <button class="btn" onclick="window.location.href='facebook.html'">📘 Facebook</button>
     <button class="btn" onclick="window.location.href='twitch.html'">🎮 Twitch Clips</button>
+  </div>
 
+  <form action="/download" method="GET" target="_blank" onsubmit="return validateUrl()">
+    <input type="url" name="url" placeholder="Colle ici une URL vidéo à télécharger" required />
+    <input type="hidden" name="format" value="mp4" />
+    <input type="submit" value="Télécharger" />
+  </form>
+
+  <footer>© 2025 Infranova - Tous droits réservés</footer>
+
+  <script>
+    function validateUrl() {
+      const urlInput = document.querySelector('input[name="url"]');
+      try {
+        new URL(urlInput.value);
+        return true;
+      } catch {
+        alert("Merci d’entrer une URL valide.");
+        return false;
+      }
+    }
+  </script>
 </body>
 </html>
