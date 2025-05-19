@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog - Infranova</title>
+  <style>
+    :root {
+      --primary: #1e88e5;
+      --bg-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      --nav-bg: rgba(0,0,0,0.5);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg-gradient);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: var(--nav-bg);
+      backdrop-filter: blur(10px);
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #4facfe;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      margin-left: 30px;
+      font-size: 16px;
+      transition: 0.3s;
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+
+    .menu a:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .content {
+      padding: 140px 30px 60px;
+      max-width: 900px;
+      margin: auto;
+      animation: fadeIn 1s ease;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 30px;
+      background: linear-gradient(90deg, #4facfe, #00f2fe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    h2 {
+      color: #4facfe;
+      margin-top: 40px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #ddd;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+    }
+
+    strong {
+      color: #4facfe;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: #aaa;
+      margin-top: auto;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    form {
+      margin-top: 30px;
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #4facfe;
+    }
+
+    input[type="text"], input[type="email"], textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: none;
+      font-size: 16px;
+      background: #203a43;
+      color: white;
+      resize: vertical;
+    }
+
+    button {
+      background: #4facfe;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background: #00f2fe;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Infranova</div>
+    <div class="menu">
+      <a href="index.html">Accueil</a>
+      <a href="histoire.html">Mon histoire</a>
+      <a href="blog.html">Blog</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <div class="content">
+    <h1>Blog Infranova</h1>
+
+    <h2>Plateformes supportées</h2>
+    <p>
+      Le site Infranova prend actuellement en charge six plateformes majeures : Facebook, Twitter, Instagram, TikTok, YouTube et Twitch. Ces plateformes ont été soigneusement sélectionnées pour leur popularité et la diversité des contenus qu’elles proposent. Notre objectif est d’offrir un service complet, fiable et sécurisé pour le téléchargement de vidéos et musiques, couvrant un large éventail de sources. Nous travaillons continuellement à l’ajout de nouvelles plateformes afin d’élargir les possibilités offertes et répondre au mieux à vos besoins. N’hésitez pas à nous suggérer via le formulaire de contact les plateformes que vous souhaiteriez voir intégrées à l’avenir.
+    </p>
+
+    <h2>Comment fonctionne un convertisseur sûr et propre ?</h2>
+    <p>
+      Notre convertisseur est conçu pour garantir un service <strong>100 % sécurisé</strong> et <strong>sans virus</strong>. Voici comment :
+    </p>
+    <ul>
+      <li>Le traitement des fichiers se fait uniquement sur nos serveurs sécurisés, sans installer de logiciels ou plugins sur votre appareil.</li>
+      <li>Aucune publicité intrusive ni pop-up n’est affichée pour éviter les risques de malware.</li>
+      <li>Les vidéos sont converties à partir des sources officielles, sans modification ni inclusion de contenus externes douteux.</li>
+      <li>La confidentialité de vos données est respectée, aucun fichier n’est stocké plus longtemps que nécessaire.</li>
+    </ul>
+
+    <h2>Proposez vos idées !</h2>
+    <p>
+      Vous avez une idée de fonctionnalité, une plateforme à ajouter, ou simplement une remarque ? Utilisez le formulaire ci-dessous pour nous contacter. Votre avis compte beaucoup pour améliorer Infranova.
+    </p>
+
+    <form action="contact.html" method="get">
+      <label for="name">Nom</label>
+      <input type="text" id="name" name="name" placeholder="Votre nom" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Votre email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" placeholder="Votre message" required></textarea>
+
+      <button type="submit">Envoyer</button>
+    </form>
+  </div>
+
+  <footer>
+    © 2025 Infranova — Merci de faire partie de cette aventure.
+  </footer>
+
+</body>
+</html>

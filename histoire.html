@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mon Histoire - Infranova</title>
+  <style>
+    :root {
+      --primary: #1e88e5;
+      --bg-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      --nav-bg: rgba(0,0,0,0.5);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg-gradient);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: var(--nav-bg);
+      backdrop-filter: blur(10px);
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #4facfe;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      margin-left: 30px;
+      font-size: 16px;
+      transition: 0.3s;
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+
+    .menu a:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .content {
+      padding: 140px 30px 60px;
+      max-width: 900px;
+      margin: auto;
+      animation: fadeIn 1s ease;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 30px;
+      background: linear-gradient(90deg, #4facfe, #00f2fe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #ddd;
+      margin-bottom: 20px;
+    }
+
+    .highlight {
+      color: #4facfe;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: #aaa;
+      margin-top: auto;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Infranova</div>
+    <div class="menu">
+      <a href="index.html">Accueil</a>
+      <a href="histoire.html">Mon histoire</a>
+      <a href="blog.html">Blog</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <div class="content">
+    <h1>Mon histoire</h1>
+    <p>
+      Je suis un jeune de <span class="highlight">18 ans</span> qui en avait assez de tomber sur des sites bourrés de <span class="highlight">publicités invasives</span>, de fausses alertes antivirus, ou encore de pages lentes et illisibles juste pour télécharger une simple vidéo.
+    </p>
+    <p>
+      C’est là que m’est venue l’idée de créer <span class="highlight">Infranova</span> : un site <strong>propre, rapide, simple</strong> et surtout <strong>fiable</strong>, pour tous ceux qui comme moi en avaient marre de galérer.
+    </p>
+    <p>
+      Mon objectif n’est pas de faire de l’argent à tout prix. Oui, il y a quelques <span class="highlight">publicités</span>, mais j’ai fait de mon mieux pour qu’elles soient <strong>discrètes et non intrusives</strong>.
+    </p>
+    <p>
+      Il faut bien <span class="highlight">rentabiliser les serveurs, le développement et l’entretien</span> du site, mais le but reste de <strong>rendre service</strong> à un maximum de personnes.
+    </p>
+    <p>
+      Derrière Infranova, il n’y a pas une grosse entreprise, juste <span class="highlight">Septix</span> — quelqu’un qui voulait une alternative saine, et qui espère qu’elle pourra servir à beaucoup.
+    </p>
+  </div>
+
+  <footer>
+    © 2025 Infranova — Merci de faire partie de cette aventure.
+  </footer>
+
+  <!-- Pop-up message -->
+  <div id="popupMessage" style="
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--bg-gradient, linear-gradient(135deg, #0f2027, #203a43, #2c5364));
+    color: #ddd;
+    padding: 25px 30px;
+    max-width: 420px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.6);
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    text-align: justify;
+    z-index: 9999;
+    display: none;
+  ">
+    <p>
+      Je tiens à présenter mes <strong>excuses</strong> si ce site peut déranger certaines plateformes. Il n’a jamais été question de <strong>contourner leurs droits</strong> ou de nuire à qui que ce soit.
+    </p>
+    <p>
+      Le seul objectif est de proposer un service de téléchargement <strong>sûr</strong> et <strong>gratuit</strong>, sans virus ni publicités intrusives, afin que les utilisateurs puissent accéder à leurs vidéos et musiques en toute tranquillité.
+    </p>
+    <p>
+      La rémunération des publicités n’est pas destinée à générer de gros revenus, mais simplement à <strong>couvrir les frais liés à la gestion</strong> et au <strong>bon fonctionnement</strong> du site.
+    </p>
+    <div style="text-align:center; margin-top: 20px;">
+      <button id="popupCloseBtn" style="
+        background: #4facfe;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 25px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      " onmouseover="this.style.background='#00f2fe';" onmouseout="this.style.background='#4facfe';">
+        J’ai compris
+      </button>
+    </div>
+  </div>
+
+  <script>
+    const popup = document.getElementById('popupMessage');
+    const btnClose = document.getElementById('popupCloseBtn');
+
+    if (!localStorage.getItem('popupShown')) {
+      popup.style.display = 'block';
+    }
+
+    btnClose.onclick = () => {
+      popup.style.display = 'none';
+      localStorage.setItem('popupShown', 'true');
+    }
+  </script>
+
+</body>
+</html>

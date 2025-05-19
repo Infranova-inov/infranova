@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Télécharger depuis TikTok</title>
+  <title>Infranova - TikTok Downloader</title>
   <style>
     body { font-family: sans-serif; text-align: center; margin-top: 100px; }
     input { width: 60%; padding: 10px; font-size: 16px; }
@@ -10,7 +10,7 @@
   </style>
 </head>
 <body>
-  <h1>🎵 Télécharger une vidéo TikTok</h1>
+  <h1>🎵 Télécharger depuis TikTok</h1>
   <input type="text" id="url" placeholder="Colle le lien TikTok ici">
   <br>
   <button onclick="download()">Télécharger en MP4</button>
@@ -19,12 +19,14 @@
 
   <script>
     function download() {
-      const url = document.getElementById("url").value;
+      const input = document.getElementById("url");
+      const url = input.value;
       if (!url) {
         alert("Colle un lien valide !");
         return;
       }
       window.open(`http://127.0.0.1:5000/download?url=${encodeURIComponent(url)}&format=mp4`, '_blank');
+      input.value = "";
     }
   </script>
 </body>

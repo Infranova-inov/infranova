@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact - Infranova</title>
+  <style>
+    :root {
+      --primary: #1e88e5;
+      --bg-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      --nav-bg: rgba(0,0,0,0.5);
+    }
+
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg-gradient);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: var(--nav-bg);
+      backdrop-filter: blur(10px);
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #4facfe;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      margin-left: 30px;
+      font-size: 16px;
+      transition: 0.3s;
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+
+    .menu a:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .content {
+      padding: 140px 30px 60px;
+      max-width: 600px;
+      margin: auto;
+      animation: fadeIn 1s ease;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 30px;
+      background: linear-gradient(90deg, #4facfe, #00f2fe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      background: rgba(255,255,255,0.1);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    }
+
+    label {
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    input, textarea {
+      padding: 12px 15px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      resize: vertical;
+      font-family: inherit;
+    }
+
+    input:focus, textarea:focus {
+      box-shadow: 0 0 8px var(--primary);
+    }
+
+    button {
+      background: var(--primary);
+      color: white;
+      font-weight: 700;
+      font-size: 18px;
+      padding: 15px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #1565c0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: #aaa;
+      margin-top: auto;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Infranova</div>
+    <div class="menu">
+      <a href="index.html">Accueil</a>
+      <a href="histoire.html">Mon histoire</a>
+      <a href="blog.html">Blog</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <div class="content">
+    <h1>Contactez-moi</h1>
+    <form id="contact-form" method="post" action="mailto:tonemail@example.com" enctype="text/plain">
+      <label for="name">Nom</label>
+      <input type="text" id="name" name="name" required placeholder="Votre nom complet" />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required placeholder="votre.email@exemple.com" />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="6" required placeholder="Votre message ici..."></textarea>
+
+      <button type="submit">Envoyer</button>
+    </form>
+  </div>
+
+  <footer>
+    © 2025 Infranova — Merci de faire partie de cette aventure.
+  </footer>
+
+</body>
+</html>

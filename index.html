@@ -2,139 +2,204 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Infranova - Téléchargeur multi-plateformes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Infranova</title>
   <style>
+    :root {
+      --primary: #1e88e5;
+      --bg-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      --nav-bg: rgba(0,0,0,0.5);
+      --hover: rgba(255,255,255,0.1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0; padding: 0;
-      background: linear-gradient(135deg, #6fb1fc, #4364f7);
-      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg-gradient);
+      color: white;
+      height: 100vh;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      gap: 2rem;
-      padding: 20px;
-      box-sizing: border-box;
+      padding: 20px 40px;
+      background: var(--nav-bg);
+      backdrop-filter: blur(10px);
+      z-index: 10;
     }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #4facfe;
     }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      margin-left: 30px;
+      font-size: 16px;
+      transition: 0.3s;
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+
+    .menu a:hover {
+      background: var(--hover);
+    }
+
+    header {
+      text-align: center;
+      padding: 120px 20px 30px;
+      animation: fadeIn 1s ease;
+    }
+
+    header h1 {
+      font-size: 48px;
+      background: linear-gradient(90deg, #4facfe, #00f2fe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    header p {
+      font-size: 18px;
+      color: #ccc;
+    }
+
     .platforms {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      max-width: 600px;
-      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 40px;
+      max-width: 1000px;
+      margin: auto;
+      animation: fadeIn 1.5s ease;
     }
-    button.btn {
-      flex: 1 1 150px;
-      background-color: #007bff;
-      border: none;
-      border-radius: 12px;
-      padding: 15px 0;
-      font-size: 1.1rem;
+
+    .btn {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
       cursor: pointer;
-      color: white;
-      box-shadow: 0 4px 10px rgba(0,123,255,0.5);
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      user-select: none;
+      transition: 0.3s ease;
     }
-    button.btn:hover {
-      background-color: #0056b3;
-      transform: translateY(-3px);
+
+    .btn:hover {
+      background: rgba(255,255,255,0.1);
+      transform: scale(1.03);
     }
-    form {
-      margin-top: 1.5rem;
-      max-width: 600px;
-      width: 100%;
-      display: flex;
-      gap: 10px;
-    }
-    input[type="url"] {
-      flex: 1;
-      padding: 12px 15px;
-      font-size: 1rem;
-      border-radius: 10px;
-      border: none;
-      outline: none;
-    }
-    input[type="submit"] {
-      padding: 12px 20px;
-      font-size: 1rem;
-      border-radius: 10px;
-      border: none;
-      background-color: #28a745;
-      color: white;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(40,167,69,0.5);
-      transition: background-color 0.3s ease;
-    }
-    input[type="submit"]:hover {
-      background-color: #1e7e34;
-    }
+
     footer {
-      margin-top: auto;
-      padding: 10px 0;
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #aaa;
     }
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 1.8rem;
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .bubbles {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .bubbles span {
+      position: absolute;
+      display: block;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.03);
+      animation: bubble 25s linear infinite;
+      border-radius: 50%;
+      bottom: -150px;
+    }
+
+    @keyframes bubble {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
       }
-      button.btn {
-        font-size: 1rem;
-        padding: 12px 0;
+      50% {
+        opacity: 0.4;
       }
-      form {
-        flex-direction: column;
+      100% {
+        transform: translateY(-1200px) scale(1.2);
+        opacity: 0;
       }
-      input[type="submit"] {
-        width: 100%;
-      }
+    }
+
+    .bubbles span:nth-child(odd) {
+      width: 30px;
+      height: 30px;
+      animation-duration: 20s;
+    }
+
+    .bubbles span:nth-child(even) {
+      width: 50px;
+      height: 50px;
+      animation-duration: 30s;
     }
   </style>
 </head>
 <body>
-  <h1>🔽 Choisis une plateforme</h1>
+
+  <nav>
+    <div class="logo">Infranova</div>
+    <div class="menu">
+      <a href="index.html">Accueil</a>
+      <a href="histoire.html">Mon histoire</a>
+      <a href="blog.html">Blog</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Téléchargez depuis toutes vos plateformes</h1>
+    <p>Simple, rapide et sans pub. YouTube, TikTok, Instagram, Facebook, Twitter, Twitch.</p>
+  </header>
+
   <div class="platforms">
-    <button class="btn" onclick="window.location.href='youtube.html'">📺 YouTube</button>
-    <button class="btn" onclick="window.location.href='tiktok.html'">🎵 TikTok</button>
-    <button class="btn" onclick="window.location.href='instagram.html'">📸 Instagram</button>
-    <button class="btn" onclick="window.location.href='twitter.html'">🐦 Twitter</button>
-    <button class="btn" onclick="window.location.href='facebook.html'">📘 Facebook</button>
-    <button class="btn" onclick="window.location.href='twitch.html'">🎮 Twitch Clips</button>
+    <div class="btn" onclick="location.href='youtube.html'">📺 YouTube</div>
+    <div class="btn" onclick="location.href='tiktok.html'">🎵 TikTok</div>
+    <div class="btn" onclick="location.href='instagram.html'">📸 Instagram</div>
+    <div class="btn" onclick="location.href='twitter.html'">🐦 Twitter</div>
+    <div class="btn" onclick="location.href='facebook.html'">📘 Facebook</div>
+    <div class="btn" onclick="location.href='twitch.html'">🎮 Twitch</div>
   </div>
 
-  <form action="/download" method="GET" target="_blank" onsubmit="return validateUrl()">
-    <input type="url" name="url" placeholder="Colle ici une URL vidéo à télécharger" required />
-    <input type="hidden" name="format" value="mp4" />
-    <input type="submit" value="Télécharger" />
-  </form>
+  <footer>
+    © 2025 Infranova — Créé avec passion.
+  </footer>
 
-  <footer>© 2025 Infranova - Tous droits réservés</footer>
+  <div class="bubbles">
+    <span style="left: 10%; animation-delay: 0s;"></span>
+    <span style="left: 20%; animation-delay: 5s;"></span>
+    <span style="left: 30%; animation-delay: 2s;"></span>
+    <span style="left: 40%; animation-delay: 8s;"></span>
+    <span style="left: 50%; animation-delay: 4s;"></span>
+    <span style="left: 60%; animation-delay: 7s;"></span>
+    <span style="left: 70%; animation-delay: 3s;"></span>
+    <span style="left: 80%; animation-delay: 6s;"></span>
+    <span style="left: 90%; animation-delay: 1s;"></span>
+  </div>
 
-  <script>
-    function validateUrl() {
-      const urlInput = document.querySelector('input[name="url"]');
-      try {
-        new URL(urlInput.value);
-        return true;
-      } catch {
-        alert("Merci d’entrer une URL valide.");
-        return false;
-      }
-    }
-  </script>
 </body>
 </html>

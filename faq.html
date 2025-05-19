@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FAQ - Infranova</title>
+  <style>
+    :root {
+      --primary: #1e88e5;
+      --bg-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      --nav-bg: rgba(0,0,0,0.5);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg-gradient);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: var(--nav-bg);
+      backdrop-filter: blur(10px);
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #4facfe;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      margin-left: 30px;
+      font-size: 16px;
+      transition: 0.3s;
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+
+    .menu a:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .content {
+      padding: 140px 30px 60px;
+      max-width: 900px;
+      margin: auto;
+      animation: fadeIn 1s ease;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 30px;
+      background: linear-gradient(90deg, #4facfe, #00f2fe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .accordion {
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      margin-bottom: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 8px rgba(0,0,0,0.3);
+    }
+
+    .accordion-header {
+      padding: 20px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(90deg, #4facfe, #00f2fe);
+      color: #0a234a;
+      border-radius: 10px 10px 0 0;
+      transition: background 0.3s;
+    }
+
+    .accordion-header:hover {
+      background: linear-gradient(90deg, #00f2fe, #4facfe);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      padding: 0 20px;
+      color: #ddd;
+      font-size: 16px;
+      line-height: 1.6;
+      background: rgba(255,255,255,0.05);
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      border-radius: 0 0 10px 10px;
+    }
+
+    .accordion-content.open {
+      padding: 20px;
+      max-height: 500px; /* assez grand pour le contenu */
+    }
+
+    .accordion-header::after {
+      content: '+';
+      font-size: 24px;
+      font-weight: bold;
+      transition: transform 0.3s;
+    }
+
+    .accordion-header.active::after {
+      content: '-';
+      transform: rotate(180deg);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: #aaa;
+      margin-top: auto;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Infranova</div>
+    <div class="menu">
+      <a href="index.html">Accueil</a>
+      <a href="histoire.html">Mon histoire</a>
+      <a href="blog.html">Blog</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <div class="content">
+    <h1>Foire aux questions</h1>
+
+    <div class="accordion">
+      <div class="accordion-header">Comment utiliser Infranova ?</div>
+      <div class="accordion-content">
+        Il vous suffit de coller le lien de la vidéo ou de la musique que vous souhaitez télécharger dans le champ prévu à cet effet sur la page de la plateforme choisie, puis de suivre les instructions pour obtenir votre fichier.
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header">Le site est-il gratuit ?</div>
+      <div class="accordion-content">
+        Oui, Infranova est entièrement gratuit. Des publicités non intrusives sont présentes pour aider à couvrir les frais de serveurs et de développement.
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header">Les fichiers téléchargés sont-ils sûrs ?</div>
+      <div class="accordion-content">
+        Absolument. Nous nous assurons que tous les fichiers générés sont exempts de virus ou de contenus malveillants.
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header">Pourquoi y a-t-il des publicités ?</div>
+      <div class="accordion-content">
+        Les publicités permettent de financer les coûts liés aux serveurs et au développement du site. Nous veillons à ce qu'elles restent discrètes et non intrusives.
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header">Comment puis-je signaler un problème ou faire une suggestion ?</div>
+      <div class="accordion-content">
+        Vous pouvez nous contacter via la page <a href="contact.html" style="color:#4facfe; text-decoration: underline;">Contact</a>. Nous apprécions vos retours pour améliorer Infranova.
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Infranova — Merci de faire partie de cette aventure.
+  </footer>
+
+  <script>
+    const headers = document.querySelectorAll('.accordion-header');
+    headers.forEach(header => {
+      header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        const isOpen = content.classList.contains('open');
+
+        // Fermer tous les autres
+        document.querySelectorAll('.accordion-content.open').forEach(openContent => {
+          openContent.classList.remove('open');
+          openContent.previousElementSibling.classList.remove('active');
+        });
+
+        if (!isOpen) {
+          content.classList.add('open');
+          header.classList.add('active');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
